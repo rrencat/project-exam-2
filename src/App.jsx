@@ -1,12 +1,29 @@
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import Layout from './components/layout/Layout';
+import HomePage from "./pages/HomePage";
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
+import VenuePage from "./pages/VenuePage";
+import VenueManagerPage from "./pages/VenueManagerPage";
+import CustomerPage from "./pages/CustomerPage";
+import NotFound from "./pages/NotFound";
 
 function App() {
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Project exam</h1>
-    </div>
-  )
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="venue" element={<VenuePage />} />
+        <Route path="venue-manager" element={<VenueManagerPage />} />
+        <Route path="customer" element={<CustomerPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
+  );
 }
 
 export default App
