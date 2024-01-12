@@ -15,6 +15,7 @@
     "react-daisyui": "^5.0.0",
     "react-datepicker": "^4.25.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.2",
     "zustand": "^4.4.7"
   },
   "devDependencies": {
