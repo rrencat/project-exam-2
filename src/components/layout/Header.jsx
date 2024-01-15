@@ -11,16 +11,16 @@ export default function Header() {
         </div>
         <div className="flex">
           <Menu horizontal={true} className="px-1">
-            <div>
-                <NavLink to="/register" className="p-4">
+            <Menu.Item>
+                <NavLink to="/register">
                     Register
                 </NavLink>
-            </div>
-            <div>
+            </Menu.Item>
+            <Menu.Item>
                 <NavLink to="/login">
                     Login
                 </NavLink>
-            </div>
+            </Menu.Item>
           </Menu>
         </div>
       </Navbar>
