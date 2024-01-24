@@ -14,7 +14,7 @@ function VenueItem({ post }) {
 						<h2><strong>{name}</strong></h2></Card.Title>
 						<p>{description}</p>
 					<Card.Actions className="justify-end hover:text-indigo-900">
-						<Link to={`venue/${id}`}>View more</Link>
+						<Link to={`venue/${id}`} className="bt bg-secondary hover:bg-primary mt-2 text-white font-bold py-3 px-3 rounded">View more</Link>
 					</Card.Actions>
 				</Card.Body>
 			</Card>
