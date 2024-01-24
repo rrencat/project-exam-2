@@ -1,7 +1,11 @@
 import { Menu, Navbar } from "react-daisyui";
 import { NavLink } from "react-router-dom";
+import LogoutButton from "../auth/logout/LogOutButton";
+import { useToken } from "../../stores/UseUserStore"; 
 
 export default function Header() {
+    const token = useToken();
+
     return (
         <Navbar>
         <div className="flex-1">
@@ -12,15 +16,26 @@ export default function Header() {
         <div className="flex">
           <Menu horizontal={true} className="px-1">
             <Menu.Item>
-                <NavLink to="/register">
-                    Register
+                <NavLink to="/">
+                    Home
                 </NavLink>
             </Menu.Item>
-            <Menu.Item>
-                <NavLink to="/login">
-                    Login
-                </NavLink>
-            </Menu.Item>
+            {!token ? (
+                <>
+                    <Menu.Item>
+                        <NavLink to="/register">
+                            Register
+                        </NavLink>
+                    </Menu.Item>
+                    <Menu.Item>
+                        <NavLink to="/login">
+                            Login
+                        </NavLink>
+                    </Menu.Item>
+                </>
+            ) : (
+                <LogoutButton />
+			)}
           </Menu>
         </div>
       </Navbar>
