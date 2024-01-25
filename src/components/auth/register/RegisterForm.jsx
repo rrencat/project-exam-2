@@ -4,9 +4,10 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import ServerWarning from "../../shared/ServerWarning";
 import ValidationMessage from "../../shared/ValidationMessage";
+import { registration } from "../../../api/auth/registration";
 import { useUserActions } from "../../../stores/UseUserStore";
 import { useMutation } from "@tanstack/react-query";
-import { register } from "../../../api/auth/register";
+
 
 const schema = yup
   .object({
@@ -16,30 +17,37 @@ const schema = yup
       .required("Username is required"),
     email: yup
       .string()
-      //.matches(/^(stud\.)?noroff\.no$/, "Please enter a valid stud.noroff.no or noroff.no email address")
       .email("Please enter a valid email")
       .required("Email is required"),
-    password: yup.string().min(8, "Password must be at least 8 characters").required("Please enter a password"),
+    password: yup
+      .string()
+      .min(8, "Password must be at least 8 characters")
+      .required("Please enter a password"),
     confirmPassword: yup
       .string()
       .oneOf([yup.ref("password"), null], "Passwords must match")
       .required("Please confirm your password"),
-    avatar: yup.string().url("Please enter a valid URL for the avatar"),
-    venueManager: yup.boolean().required("Please specify if the user is a venue manager"),
+    avatar: yup
+      .string()
+      .url("Please enter a valid URL for the avatar"),
+    venueManager: yup
+      .boolean()
+      .required("Please specify if the user is a venue manager"),
   })
   .required();
 
 export default function RegistrationForm() {
   const { setUser } = useUserActions();
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const registrationMutation = useMutation({
-    mutationFn: (data) => register(data),
+    mutationFn: (data) => registration(data),
     onSuccess: (data) => {
       setUser(data);
-      navigate("/customer");
+      //navigate("/customer");
     },
   });
+
 
   const {
     register,
