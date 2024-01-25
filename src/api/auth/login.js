@@ -1,13 +1,13 @@
-import { LOGIN_URL } from "../../constants/api";
+import { LOGIN_URL } from "../../constants/api.js";
 
 export async function login(userDetails) {
-    const options = {
+	const options = {
 		headers: { "Content-Type": "application/json" },
 		method: "POST",
 		body: JSON.stringify(userDetails),
 	};
 
-    const response = await fetch(LOGIN_URL, options);
+	const response = await fetch(LOGIN_URL, options);
 	const json = await response.json();
 
 	if (!response.ok) {

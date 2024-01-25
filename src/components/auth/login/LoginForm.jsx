@@ -10,12 +10,17 @@ import { login } from "../../../api/auth/login";
 
 const schema = yup
 	.object({
-		email: yup.string().email("Please enter a valid email").required("Email is required"),
-		password: yup.string().required("Please enter a password"),
+		email: yup
+		.string()
+		.email("Please enter a valid email")
+		.required("Email is required"),
+		password: yup
+		.string()
+		.required("Please enter a password"),
 	})
 	.required();
 
-export default function LoginForm() {
+function LoginForm() {
 	const { setUser } = useUserActions();
 	const navigate = useNavigate();
 
@@ -23,7 +28,7 @@ export default function LoginForm() {
 		mutationFn: (data) => login(data),
 		onSuccess: (data) => {
 			setUser(data);
-			navigate("/customer");
+			navigate("/dashboard");
 		},
 	});
 
@@ -69,3 +74,4 @@ export default function LoginForm() {
 	);
 }
 
+export default LoginForm;
