@@ -1,17 +1,17 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useNavigate } from "react-router-dom";
-import ServerWarning from "../../shared/ServerWarning";
+import ServerWatning from "../../shared/ServerWarning";
 import ValidationMessage from "../../shared/ValidationMessage";
 import { registration } from "../../../api/auth/registration";
-import { useUserActions } from "../../../stores/UseUserStore";
 import { useMutation } from "@tanstack/react-query";
+
 
 
 const schema = yup
   .object({
-    username: yup
+    name: yup
       .string()
       .matches(/^[\w_]+$/, "Only alphanumeric characters and underscores are allowed")
       .required("Username is required"),
@@ -37,25 +37,25 @@ const schema = yup
   .required();
 
 export default function RegistrationForm() {
-  const { setUser } = useUserActions();
-  //const navigate = useNavigate();
-
-  const registrationMutation = useMutation({
-    mutationFn: (data) => registration(data),
-    onSuccess: (data) => {
-      setUser(data);
-      //navigate("/customer");
-    },
-  });
-
+  const [serverMessage, setServerMessage] = useState(null);
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const registrationMutation = useMutation({
+    mutationFn: (data) => registration(data),
+    onSuccess: () => {
+      setServerMessage("Registration successfull. You may now log in.");
+      reset();
+    },
+  });
+
 
   async function onSubmit(data) {
     registrationMutation.mutate(data);
@@ -65,15 +65,16 @@ export default function RegistrationForm() {
     <div className="flex mt-4 justify-center">
       <form className="bg-gray-800 p-8 w-full" onSubmit={handleSubmit(onSubmit)}>
         <fieldset disabled={registrationMutation.isPending}>
+          {serverMessage && <div>{serverMessage}</div>}
           {registrationMutation.isError && (
-            <ServerWarning>{registrationMutation.error.message}</ServerWarning>
+            <ServerWatning>{registrationMutation.error.message}</ServerWatning>
           )}
           <div className="form-control w-full max-w-md mx-auto">
             <label className="label">
               <span className="label-text">Username</span>
             </label>
-            <input className="p-3" {...register("username")} />
-            {errors.username && <ValidationMessage>{errors.username.message}</ValidationMessage>}
+            <input className="p-3" {...register("name")} />
+            {errors.name && <ValidationMessage>{errors.name.message}</ValidationMessage>}
           </div>
           <div className="form-control w-full max-w-md mx-auto">
             <label className="label">
