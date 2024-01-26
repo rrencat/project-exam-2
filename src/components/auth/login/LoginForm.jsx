@@ -28,7 +28,7 @@ function LoginForm() {
 		mutationFn: (data) => login(data),
 		onSuccess: (data) => {
 			setUser(data);
-			navigate("/dashboard");
+			navigate("/customer");
 		},
 	});
 
