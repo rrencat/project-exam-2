@@ -18,7 +18,7 @@ function App() {
         <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="venue/:id" element={<VenuePage />} />
-        <Route path="venue-manager" element={<VenueManagerPage />} />
+        <Route path="manager" element={<VenueManagerPage />} />
         <Route path="customer" element={<CustomerPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
