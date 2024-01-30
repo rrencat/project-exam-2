@@ -3,7 +3,7 @@ import { Card } from "react-daisyui";
 import { Link } from "react-router-dom";
 
 function VenueItem({ post }) {
-	const { name, description, media, id } = post;
+	const { name, description, media, location, price, id } = post;
 
 	return (
 		<div>
@@ -11,8 +11,11 @@ function VenueItem({ post }) {
 				<Card.Image src={media} alt={name} />
 				<Card.Body>
 					<Card.Title>
-						<h2><strong>{name}</strong></h2></Card.Title>
+						<h2><strong>{name}</strong></h2>
+					</Card.Title>
+						<p><i>{location.address}, {location.country}</i></p>
 						<p>{description}</p>
+						<p>{price} NOK</p>
 					<Card.Actions className="justify-end hover:text-indigo-900">
 						<Link to={`venue/${id}`} className="bt bg-secondary hover:bg-primary mt-2 text-white font-bold py-3 px-3 rounded">View more</Link>
 					</Card.Actions>
