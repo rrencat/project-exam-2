@@ -1,6 +1,6 @@
 import { Button } from "react-daisyui";
 import { useNavigate } from "react-router-dom";
-import { useUserActions } from "../../../stores/UseUserStore";
+import { useUserActions } from "../../../stores/useUserStore";
 
 
 function LogoutButton() {

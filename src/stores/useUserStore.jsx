@@ -15,6 +15,7 @@ const useUserStore = create(
 );
 
 export const useToken = () => useUserStore((state) => state.user?.accessToken);
+export const venueManager = () => useUserStore((state) => state.user?.venueManager(true));
 
 export const useUserActions = () => {
 	const { setUser, clearUser } = useUserStore();

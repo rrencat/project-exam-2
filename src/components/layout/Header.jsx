@@ -1,7 +1,7 @@
 import { Menu, Navbar } from "react-daisyui";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/logout/LogOutButton";
-import { useToken } from "../../stores/UseUserStore"; 
+import { useToken } from "../../stores/useUserStore"; 
 
 export default function Header() {
     const token = useToken();
@@ -34,7 +34,14 @@ export default function Header() {
                     </Menu.Item>
                 </>
             ) : (
-                <LogoutButton />
+                <>
+                    <Menu.Item>
+                            <NavLink to="/customer">
+                                Profile
+                            </NavLink>
+                        </Menu.Item>
+                    <LogoutButton />
+                </>
 			)}
           </Menu>
         </div>
