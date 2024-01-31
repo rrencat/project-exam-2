@@ -14,7 +14,7 @@ function LogoutButton() {
 	}
 
 	return (
-		<Button tag="a" onClick={handleLogout}>
+		<Button tag="a" onClick={handleLogout} className="bt bg-secondary hover:bg-primary min-h-1 text-white font-bold py-3 px-3 rounded">
 			Logout
 		</Button>
 	);
