@@ -7,7 +7,7 @@ function VenueItem({ post }) {
 
 	return (
 		<div>
-			<Card side="lg" className="mb-3">
+			<Card>
 				<Card.Image src={media} alt={name} />
 				<Card.Body>
 					<Card.Title>
