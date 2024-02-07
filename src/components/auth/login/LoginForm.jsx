@@ -16,14 +16,11 @@ const schema = yup
 		.required("Email is required"),
 		password: yup
 		.string()
-		.required("Please enter a password"),
-		venueManager: yup
-		.boolean()
-		.required("Please specify if the user is a venue manager"),
+		.required("Please enter a password")
 	})
 	.required();
 
-function LoginForm() {
+export default function LoginForm() {
 	const { setUser } = useUserActions();
 	const navigate = useNavigate();
 
@@ -83,5 +80,3 @@ function LoginForm() {
 		</div>
 	);
 }
-
-export default LoginForm;
