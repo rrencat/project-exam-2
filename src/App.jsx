@@ -8,6 +8,7 @@ import VenuePage from "./pages/VenuePage";
 import VenueManagerPage from "./pages/VenueManagerPage";
 import CustomerPage from "./pages/CustomerPage";
 import NotFound from "./pages/NotFound";
+import CreateVenue from './pages/CreateVenue';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="login" element={<LoginPage />} />
         <Route path="venue/:id" element={<VenuePage />} />
         <Route path="manager" element={<VenueManagerPage />} />
+        <Route path="create-venue" element={<CreateVenue />} />
         <Route path="customer" element={<CustomerPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
