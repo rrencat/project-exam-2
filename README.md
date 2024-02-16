@@ -4,11 +4,11 @@
 
 To take the skills learned over the past two years and create a brand new front end for Holidaze application.
 
-## Description
+### Description
 
 Using provided NorOff API and API documentation, I have been tasked to create a website for a booking site called - Holidaze. The website should allow a registered customer to view and book a stay at venues. It should also allow a registered venue manager to view bookings on their venues, create new venues, edit venues and delete venues. And to allow non-registered users to view the venues listed.
 
-## Built With
+### Built With
 
 - **React**
 - **Vite** 
