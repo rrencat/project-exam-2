@@ -17,9 +17,9 @@ Using provided NorOff API and API documentation, I have been tasked to create a 
 - **Zustand**
 - **Tailwind**
 
-### Getting Started
+## Getting Started
 
-## Prerequisites
+### Prerequisites
 
 - Node.js
 - npm
@@ -28,7 +28,7 @@ Using provided NorOff API and API documentation, I have been tasked to create a 
 npm install npm@latest -g
 ```
 
-## Installation
+### Installation
 
 1. Clone the repo
 
@@ -48,7 +48,7 @@ npm install
 npm start
 ```
 
-## Development with Vite
+### Development with Vite
 
 To start the development server with Vite, run:
 
