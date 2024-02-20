@@ -4,7 +4,8 @@ import LogoutButton from "../auth/logout/LogOutButton";
 import { useToken } from "../../stores/useUserStore"; 
 
 export default function Header() {
-    const token = useToken();
+    const { token, isManager } = useToken();
+
 
     return (
         <Navbar>
@@ -36,7 +37,7 @@ export default function Header() {
             ) : (
                 <>
                     <Menu.Item>
-                            <NavLink to="/customer">
+                            <NavLink to={isManager ? "/manager" : "/customer"}>
                                 Profile
                             </NavLink>
                         </Menu.Item>
