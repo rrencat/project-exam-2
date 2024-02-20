@@ -1,12 +1,14 @@
 import { useAvatar, useName } from "../../stores/useUserStore";
 import { Card } from "react-daisyui";
 
+
 export default function CustomerProfile() {
     const name = useName();
     const avatar = useAvatar();
+    
 
     const handleImgLoadingError = (e) => {
-        e.target.src = "/public/images/blank-profile-picture-973460_1280.png";
+        e.target.src = "/images/blank-profile-picture-973460_1280.png";
       };
 
     return (
