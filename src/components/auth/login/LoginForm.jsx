@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import ServerWarning from "../../shared/ServerWarning";
 import ValidationMessage from "../../shared/ValidationMessage";
-import { useUserActions } from "../../../stores/UseUserStore";
+import { useUserActions } from "../../../stores/useUserStore";
 import { useMutation } from "@tanstack/react-query";
 import { login } from "../../../api/auth/login";
 
