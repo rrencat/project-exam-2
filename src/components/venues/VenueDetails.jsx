@@ -2,8 +2,6 @@ import { useParams } from "react-router-dom";
 import { VENUES_URL } from "../../constants/api"; 
 import { useQuery } from "@tanstack/react-query";
 import { Card } from "react-daisyui";
-import ReactDatePicker from "react-datepicker";
-import { useState } from "react";
 
 async function getVenue(id) {
 	const response = await fetch(`${VENUES_URL}/${id}`);
@@ -21,10 +19,12 @@ function VenueDetails() {
 	const { isPending, error, data } = useQuery({
 		queryKey: ["venue", id],
 		queryFn: () => getVenue(id),
-		staleTime: 1000 * 60 * 5, // 5 minutes
+		staleTime: 1000 * 60 * 5,
 	});
 
-	
+	const handleImgLoadingError = (e) => {
+        e.target.src = "/images/log-cabin-1886620_640.jpg";
+      };
 		
 
 	if (isPending) return <div>Loading...</div>;
@@ -36,7 +36,7 @@ function VenueDetails() {
 			{data && (
 				<>
 			<Card side="lg" className="mb-3">
-				<Card.Image src={data.media} alt={data.name} />
+				<Card.Image src={data.media} alt={data.name} onError={(e) => handleImgLoadingError(e)}/>
 				<Card.Body>
 					<Card.Title>
 						<h2><strong>{data.name}</strong></h2>

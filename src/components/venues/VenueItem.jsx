@@ -5,10 +5,14 @@ import { Link } from "react-router-dom";
 function VenueItem({ post }) {
 	const { name, description, media, location, price, id } = post;
 
+	const handleImgLoadingError = (e) => {
+        e.target.src = "/images/log-cabin-1886620_640.jpg";
+      };
+
 	return (
 		<div>
 			<Card>
-				<Card.Image src={media} alt={name} />
+				<Card.Image src={media} alt={name} onError={(e) => handleImgLoadingError(e)}/>
 				<Card.Body>
 					<Card.Title>
 						<h2><strong>{name}</strong></h2>
