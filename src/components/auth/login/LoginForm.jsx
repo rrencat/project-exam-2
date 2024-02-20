@@ -64,13 +64,6 @@ export default function LoginForm() {
 						{errors.password && <ValidationMessage>{errors.password.message}</ValidationMessage>}
 					</div>
 					<div className="form-control w-full max-w-md mx-auto">
-						<label className="label">
-							<span className="label-text">Venue Manager</span>
-						</label>
-						<input className="p-3" {...register("venueManager")} type="checkbox" />
-						{errors.venueManager && (<ValidationMessage>{errors.venueManager.message}</ValidationMessage>)}
-					</div>
-					<div className="form-control w-full max-w-md mx-auto">
 						<button className="bg-secondary hover:bg-primary mt-2 text-white font-bold py-4 px-4 rounded">
 							{loginMutation.isPending ? "Logging in..." : "Login"}
 						</button>
