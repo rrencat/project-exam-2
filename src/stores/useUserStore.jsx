@@ -14,9 +14,15 @@ const useUserStore = create(
 	)
 );
 
-export const useToken = () => useUserStore((state) => state.user?.accessToken);
+export const useToken = () => {
+	const user = useUserStore((state) => state.user);
+	const isManager = user?.isManager || false;
+  
+	return { token: user?.accessToken, isManager };
+  };
+
 export const useName = () => useUserStore((state) => state.user?.name);
-export const venueManager = () => useUserStore((state) => state.user?.venueManager(true));
+export const useAvatar = () => useUserStore((state) => state.user?.avatar);
 
 export const useUserActions = () => {
 	const { setUser, clearUser } = useUserStore();
