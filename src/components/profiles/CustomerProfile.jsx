@@ -11,6 +11,9 @@ export default function CustomerProfile() {
         e.target.src = "/images/blank-profile-picture-973460_1280.png";
       };
 
+
+	
+	
     return (
 		<div>
 			<div className="avatar">
