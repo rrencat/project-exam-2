@@ -9,6 +9,7 @@ import VenueManagerPage from "./pages/VenueManagerPage";
 import CustomerPage from "./pages/CustomerPage";
 import NotFound from "./pages/NotFound";
 import CreateVenue from './pages/CreateVenue';
+import ChangeAvatar from "./pages/ChangeAvatar";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="manager" element={<VenueManagerPage />} />
         <Route path="create-venue" element={<CreateVenue />} />
         <Route path="customer" element={<CustomerPage />} />
+        <Route path="change-avatar" element={<ChangeAvatar />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
