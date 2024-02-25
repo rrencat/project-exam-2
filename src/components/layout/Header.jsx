@@ -4,7 +4,7 @@ import LogoutButton from "../auth/logout/LogOutButton";
 import { useToken } from "../../stores/useUserStore"; 
 
 export default function Header() {
-    const token = useToken();
+    const { token, venueManager } = useToken();
 
 
     return (
@@ -37,10 +37,10 @@ export default function Header() {
             ) : (
                 <>
                     <Menu.Item>
-                            <NavLink to="/customer">
-                                Profile
-                            </NavLink>
-                        </Menu.Item>
+                        <NavLink to={venueManager ? "/manager" : "/customer"}>
+                            Profile
+                        </NavLink>
+                    </Menu.Item>
                     <LogoutButton />
                 </>
 			)}
