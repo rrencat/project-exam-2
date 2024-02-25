@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import ServerWarning from "../../shared/ServerWarning";
 import ValidationMessage from "../../shared/ValidationMessage";
-import { useUserActions } from "../../../stores/useUserStore";
+import { useToken, useUserActions } from "../../../stores/useUserStore";
 import { useMutation } from "@tanstack/react-query";
 import { login } from "../../../api/auth/login";
 
@@ -22,13 +22,18 @@ const schema = yup
 
 export default function LoginForm() {
 	const { setUser } = useUserActions();
+	const { venueManager } = useToken();
 	const navigate = useNavigate();
 
 	const loginMutation = useMutation({
 		mutationFn: (data) => login(data),
 		onSuccess: (data) => {
 			setUser(data);
-			navigate("/customer");
+			if (venueManager) {
+				navigate("/manager");
+			  } else {
+				navigate("/customer");
+			  }
 		},
 	});
 
