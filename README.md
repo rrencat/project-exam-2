@@ -38,7 +38,7 @@ npm install npm@latest -g
 1. Clone the repo
 
 ```bash
-git clone https://github.com/rrencat/project-exam-2.git
+gh repo clone rrencat/project-exam-2
 ```
 
 2. Install NPM packages
